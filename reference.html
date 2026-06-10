@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>模型參考 · 關稅五隔室模型</title>
+<title>模型參考</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -10,12 +10,12 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 </head>
 <body data-page="reference">
-<header class="site-header"><div class="nav-inner"><a class="brand" href="index.html">生物數學 · 關稅五隔室模型</a><nav class="nav-links">
+<header class="site-header"><div class="nav-inner"><a class="brand" href="index.html">關稅團塊模型</a><nav class="nav-links">
 <a href="index.html" data-page="home">首頁</a><a href="reference.html" data-page="reference">模型參考</a>
 <a href="intro.html" data-page="intro">主題介紹</a><a href="simulator.html" data-page="simulator">模擬計算機</a>
 </nav></div></header>
 <main>
-<section class="hero"><h1>模型參考頁</h1><p>本頁整合<strong>流向圖</strong>、<strong>ODE 方程式</strong>與<strong>符號說明</strong>，方便同學與老師一次查閱。經濟名詞下方附生態類比，協助非經濟背景讀者理解。</p></section>
+<section class="hero"><h1>模型參考頁</h1><p>本頁整合<strong>流向圖</strong>、<strong>ODE 方程式</strong>與<strong>符號說明</strong>，方便查閱</p></section>
 
 <section class="section" id="diagram">
 <h2>1. 團塊系統流向圖</h2>
@@ -27,11 +27,7 @@
 <span class="pool-y">Y 國民所得</span><span class="pool-m">M 進口支出</span>
 </div>
 <p style="color:var(--muted);font-size:.92rem;margin:.75rem 0 0">虛線箭頭代表各隔室的自然耗散（δ 係數）。</p>
-<details style="margin-top:1rem"><summary style="cursor:pointer;font-weight:600">查看原始 Word 圖檔</summary>
-<img class="diagram-original" src="assets/flow-original.png" alt="原始流向圖"></details>
 </div>
-<div class="callout"><strong>生態類比：</strong>可把每個隔室想成生態系中的「存量池」（如土壤碳庫、水庫、生物量）。箭頭是通量；關稅 τ 則像<strong>人為降低外部輸入</strong>（例如阻擋外來營養鹽流入），擾動會沿著食物鏈／物質鏈傳遞。</div>
-</section>
 
 <section class="section" id="equations">
 <h2>2. 常微分方程（ODE）</h2>
@@ -47,18 +43,18 @@
 <section class="section" id="symbols">
 <h2>3. 符號說明</h2>
 <h3 style="margin-top:0">狀態變數（隔室）</h3>
-<div class="panel"><table><thead><tr><th>符號</th><th>定義</th><th>單位</th><th>生態類比</th></tr></thead><tbody>
-<tr><td>$X(t)$</td><td>出口收入存量</td><td>億元</td><td>外部輸入形成的初級資源池</td></tr>
-<tr><td>$F(t)$</td><td>外匯存底</td><td>億元</td><td>可動用的「交換媒介／緩衝庫」</td></tr>
-<tr><td>$I(t)$</td><td>國內投資存量</td><td>億元</td><td>累積的建設性資本（類似生物量累積）</td></tr>
-<tr><td>$Y(t)$</td><td>國民所得</td><td>億元</td><td>系統當期的總產出／可用能量</td></tr>
-<tr><td>$M(t)$</td><td>進口支出存量</td><td>億元</td><td>對外索取資源的待結算池</td></tr>
+<div class="panel"><table><thead><tr><th>符號</th><th>定義</th><th>單位</th></tr></thead><tbody>
+<tr><td>$X(t)$</td><td>出口收入存量</td><td>億元</td></tr>
+<tr><td>$F(t)$</td><td>外匯存底</td><td>億元</td></tr>
+<tr><td>$I(t)$</td><td>國內投資存量</td><td>億元</td></tr>
+<tr><td>$Y(t)$</td><td>國民所得</td><td>億元</td></tr>
+<tr><td>$M(t)$</td><td>進口支出存量</td><td>億元</td></tr>
 </tbody></table></div>
 <h3>外生參數</h3>
 <div class="panel"><table><thead><tr><th>符號</th><th>定義</th><th>單位</th><th>說明</th></tr></thead><tbody>
-<tr><td>$\tau$</td><td>外國對我國課徵的關稅率</td><td>無因次（0～1）</td><td>外部壓力；越大代表輸入端被壓越低</td></tr>
+<tr><td>$\tau$</td><td>外國對我國課徵的關稅率</td><td>無（0～1）</td><td>外部壓力；越大代表輸入端被壓越低</td></tr>
 <tr><td>$E_0$</td><td>無關稅時的基準出口流入量</td><td>億元／年</td><td>未受擾動時的外部輸入通量</td></tr>
-<tr><td>$\beta$</td><td>關稅對出口的敏感係數</td><td>無因次</td><td>關稅每增加 1 單位，流入額外減少的比例</td></tr>
+<tr><td>$\beta$</td><td>關稅對出口的敏感係數</td><td>無</td><td>關稅每增加 1 單位，流入額外減少的比例</td></tr>
 </tbody></table></div>
 <h3>轉換係數（通量速率）</h3>
 <div class="panel"><table><thead><tr><th>符號</th><th>定義</th><th>單位</th></tr></thead><tbody>
@@ -78,7 +74,6 @@
 </tbody></table></div>
 </section>
 </main>
-<footer class="site-footer">生物數學課程專題 · 關稅衝擊的五隔室動態模型</footer>
 
 <script src="js/diagram.js"></script>
 <script src="js/katex-init.js"></script>
