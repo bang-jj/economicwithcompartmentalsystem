@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>主題介紹 · 關稅五隔室模型</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+</head>
+<body data-page="intro">
+<header class="site-header"><div class="nav-inner"><a class="brand" href="index.html">生物數學 · 關稅五隔室模型</a><nav class="nav-links">
+<a href="index.html" data-page="home">首頁</a><a href="reference.html" data-page="reference">模型參考</a>
+<a href="intro.html" data-page="intro">主題介紹</a><a href="simulator.html" data-page="simulator">模擬計算機</a>
+</nav></div></header>
+<main>
+<section class="hero"><h1>主題介紹</h1><p>本頁以淺白方式說明：為什麼在生物數學課要談關稅？這個模型想回答什麼？並再次呈現核心圖與方程式。</p></section>
+
+<section class="section"><h2>前情說明</h2>
+<div class="panel">
+<p>在國際貿易中，<strong>關稅（tariff）</strong>是進口國對他國商品課徵的稅。關稅提高時，出口國的產品在對方市場變貴，<strong>出口量往往下降</strong>，連帶影響外匯收入、國內投資與整體所得。</p>
+<p>對生態或生物背景的同學來說，可以把整個國家想成一個<strong>開放的物質循環系統</strong>：</p>
+<ul>
+<li><strong>外部輸入</strong>：出口換來的外匯收入（像河流注入湖泊）</li>
+<li><strong>隔室存量</strong>：外匯、投資、所得、進口支出等池子</li>
+<li><strong>通量</strong>：資金在池子間轉換的速率（係數 $a,b,c,d,e$）</li>
+<li><strong>耗散</strong>：消費、折舊、結清等使存量自然減少的過程（$\delta$ 係數）</li>
+</ul>
+<p>生物數學課常用<strong>隔室模型（compartment model）</strong>描述養分、碳或族群在系統中的流動。本專題借用同一套工具，把貿易衝擊寫成五個 ODE，讓我們用「通量—存量—擾動」的語言討論政策效果。</p>
+</div></section>
+
+<section class="section"><h2>研究目的</h2>
+<div class="panel">
+<ol>
+<li><strong>建立可視化的五隔室模型</strong>，呈現關稅如何從「出口流入端」影響整條資金鏈。</li>
+<li><strong>用 ODE 描述動態</strong>，觀察存量是否趨近平衡、或持續升降。</li>
+<li><strong>提供互動模擬</strong>，讓同學調整關稅率 $\tau$ 與敏感係數 $\beta$，比較不同情境。</li>
+<li><strong>連結生態思維</strong>：將經濟名詞轉譯為隔室與通量，降低非經濟背景讀者的門檻。</li>
+</ol>
+<div class="callout"><strong>核心假設：</strong>關稅 $\tau$ 的唯一直接作用，是將基準出口流入 $E_0$ 壓低為 $E_0(1-\beta\tau)$。之後所有變化都是這個「輸入端擾動」沿著 $X\to F\to I\to Y\to M$ 傳遞的結果。</div>
+</div></section>
+
+<section class="section"><h2>系統流向圖</h2>
+<p class="lead">下圖為模型骨幹。詳細符號請見<a href="reference.html#symbols">模型參考頁</a>。</p>
+<div class="panel"><div id="flow-diagram"></div></div></section>
+
+<section class="section"><h2>核心方程式</h2>
+<p class="lead">完整符號表見<a href="reference.html#equations">參考頁</a>。此處列出五式供快速對照。</p>
+<div class="eq-block">$$\frac{dX}{dt}=E_0(1-\beta\tau)-aX-\delta_X X$$</div>
+<div class="eq-block">$$\frac{dF}{dt}=aX+eM-bF-\delta_F F$$</div>
+<div class="eq-block">$$\frac{dI}{dt}=bF-cI-\delta_I I$$</div>
+<div class="eq-block">$$\frac{dY}{dt}=cI-dY-\delta_Y Y$$</div>
+<div class="eq-block">$$\frac{dM}{dt}=dY-eM-\delta_M M$$</div>
+<p style="margin-top:1.25rem"><a class="btn" href="simulator.html">下一步：到模擬計算機試試不同關稅情境 →</a></p>
+</section>
+</main>
+<footer class="site-footer">生物數學課程專題 · 關稅衝擊的五隔室動態模型</footer>
+
+<script src="js/diagram.js"></script>
+<script src="js/katex-init.js"></script>
+</body></html>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>模擬計算機 · 關稅五隔室模型</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="simulator">
+<header class="site-header"><div class="nav-inner"><a class="brand" href="index.html">生物數學 · 關稅五隔室模型</a><nav class="nav-links">
+<a href="index.html" data-page="home">首頁</a><a href="reference.html" data-page="reference">模型參考</a>
+<a href="intro.html" data-page="intro">主題介紹</a><a href="simulator.html" data-page="simulator">模擬計算機</a>
+</nav></div></header>
+<main>
+<section class="hero"><h1>模擬計算機</h1><p>調整關稅率、外生參數、轉換係數與初始存量，以 RK4 方法積分 ODE，觀察五個隔室隨時間的變化。建議先從預設值開始，再只改變 $\tau$ 比較差異。</p></section>
+<div class="sim-layout">
+<aside class="panel">
+<h2 style="margin:0 0 .5rem;font-size:1.1rem">參數設定</h2>
+<div class="form-section-title">外生參數</div>
+<div class="form-group"><label for="E0">E₀ 基準出口流入（億元/年）</label><input id="E0" type="number" step="1" min="0"></div>
+<div class="form-group"><label for="tau">τ 關稅率（0～1）</label><input id="tau" type="number" step="0.01" min="0" max="1"><small>例：0.1 代表 10% 關稅</small></div>
+<div class="form-group"><label for="beta">β 關稅敏感係數</label><input id="beta" type="number" step="0.1" min="0"></div>
+<div class="form-section-title">轉換係數（1/年）</div>
+<div class="form-group"><label for="a">a</label><input id="a" type="number" step="0.01" min="0"></div>
+<div class="form-group"><label for="b">b</label><input id="b" type="number" step="0.01" min="0"></div>
+<div class="form-group"><label for="c">c</label><input id="c" type="number" step="0.01" min="0"></div>
+<div class="form-group"><label for="d">d</label><input id="d" type="number" step="0.01" min="0"></div>
+<div class="form-group"><label for="e">e</label><input id="e" type="number" step="0.01" min="0"></div>
+<div class="form-section-title">耗散率（1/年）</div>
+<div class="form-group"><label for="dX">δ_X</label><input id="dX" type="number" step="0.01" min="0"></div>
+<div class="form-group"><label for="dF">δ_F</label><input id="dF" type="number" step="0.01" min="0"></div>
+<div class="form-group"><label for="dI">δ_I</label><input id="dI" type="number" step="0.01" min="0"></div>
+<div class="form-group"><label for="dY">δ_Y</label><input id="dY" type="number" step="0.01" min="0"></div>
+<div class="form-group"><label for="dM">δ_M</label><input id="dM" type="number" step="0.01" min="0"></div>
+<div class="form-section-title">初始存量（億元）</div>
+<div class="form-group"><label for="X0">X₀</label><input id="X0" type="number" step="1" min="0"></div>
+<div class="form-group"><label for="F0">F₀</label><input id="F0" type="number" step="1" min="0"></div>
+<div class="form-group"><label for="I0">I₀</label><input id="I0" type="number" step="1" min="0"></div>
+<div class="form-group"><label for="Y0">Y₀</label><input id="Y0" type="number" step="1" min="0"></div>
+<div class="form-group"><label for="M0">M₀</label><input id="M0" type="number" step="1" min="0"></div>
+<div class="form-section-title">模擬設定</div>
+<div class="form-group"><label for="years">模擬年數</label><input id="years" type="number" step="1" min="1" max="100" value="20"></div>
+<button class="btn" id="runBtn" type="button" style="width:100%;margin-top:.5rem">執行模擬</button>
+<button class="btn btn-secondary" id="resetBtn" type="button" style="width:100%;margin-top:.5rem">恢復預設值</button>
+</aside>
+<section>
+<div class="chart-box"><h3>五隔室存量動態</h3><canvas id="mainChart" height="120"></canvas></div>
+<div class="panel" id="summary"></div>
+<div class="callout"><strong>使用提示：</strong>先固定其他參數，只調高 τ，觀察 X 的流入 $E_0(1-\beta\tau)$ 如何連鎖影響 F、I、Y、M。這呼應「關稅只在輸入端作用」的模型設計。</div>
+</section>
+</div>
+</main>
+<footer class="site-footer">生物數學課程專題 · 關稅衝擊的五隔室動態模型</footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+<script src="js/diagram.js"></script><script src="js/model.js"></script><script src="js/simulator.js"></script><script>setActiveNav();</script>
+</body></html>
